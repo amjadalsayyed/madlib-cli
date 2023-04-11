@@ -10,12 +10,11 @@ This game is take some words from you like none , verb ,adjective so on ........
 
    # this func take a path for afile and read it then return its content
 def read_template(path):
-    try:
-       test1=open(path)
-       return test1.read()
-    except FileNotFoundError as err:
-        print('file is not found pls change the path !')
-        print(err)
+    if path != "/assets/output_game.txt" and path != 'assets/dark_and_stormy_night_template.txt':
+       raise FileNotFoundError("Error : path is not correct")
+    with open(path) as file:
+         return (file.read())
+   
 
 
 def parse_template(text):
